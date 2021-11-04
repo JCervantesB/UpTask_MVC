@@ -1,0 +1,27 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.tagline {
+    color: v.$negro;
+    font-weight: v.$bold;
+}
+.campo {
+    display: flex;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+.campo label {
+    flex: 0 0 100px;
+    text-align: left;
+    padding-right: 1rem;
+}
+.campo input[type="email"],
+.campo input[type="password"] {
+    height: 3rem;
+    border: 0;
+    flex: 1;
+    border: 1px solid #455A64;
+    border-radius: 1rem;
+    padding-left: 2rem;
+    color: black;
+}
