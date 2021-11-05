@@ -11,11 +11,12 @@
     align-items: center;
 }
 .campo label {
-    flex: 0 0 100px;
+    flex: 0 0 10rem;
     text-align: left;
     padding-right: 1rem;
 }
 .campo input[type="email"],
+.campo input[type="text"],
 .campo input[type="password"] {
     height: 3rem;
     border: 0;

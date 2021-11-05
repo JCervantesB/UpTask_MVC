@@ -4,24 +4,16 @@
 .login {
     margin-top: 5rem;
     .uptask {
-        background: linear-gradient(to right, v.$rosa 0%, lighten(v.$naranja, 20%) 100%);
-        color: transparent;
-        background-clip: text;
-        text-align: center;
-        font-size: 7rem;
-
-        @include m.tablet {
-            font-size: 10rem;
-        }
+        @include m.textoDegradado(v.$cyan);
     }
 
     input[type="submit"] {
-        @include m.boton(v.$naranja, v.$blanco);
+        @include m.boton(v.$cyan, v.$blanco);
     }
 
     .acciones {
         a {
-            color: v.$naranja;
+            color: v.$cyan;
         }
     }
 }
