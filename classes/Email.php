@@ -27,8 +27,8 @@ class Email {
         $mail->SMTPDebug = SMTP::DEBUG_SERVER;
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'imjcervantes@gmail.com';
-        $mail->Password = 'J1807881';
+        $mail->Username = 'cuentas@uptask.com';
+        $mail->Password = 'SECRET';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port = 465;
 
@@ -62,8 +62,8 @@ class Email {
         $mail->SMTPDebug = SMTP::DEBUG_SERVER;
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'imjcervantes@gmail.com';
-        $mail->Password = 'J1807881';
+        $mail->Username = 'cuentas@uptask.com';
+        $mail->Password = 'SECRET';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port = 465;
 
