@@ -26,8 +26,13 @@ class Email {
         $mail->isSMTP();
         $mail->Host = 'smtp.mailtrap.io';
         $mail->SMTPAuth = true;
+<<<<<<< HEAD
         $mail->Username = 'd910a798db45e3';
         $mail->Password = '0909c36e7491be*';
+=======
+        $mail->Username = 'cuentas@uptask.com';
+        $mail->Password = 'SECRET';
+>>>>>>> 3b06348afad1b8574a4e0ef2a00cc42b6d5bc11f
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port = 2525;
 
@@ -60,8 +65,13 @@ class Email {
         $mail->isSMTP();
         $mail->Host = 'smtp.mailtrap.io';
         $mail->SMTPAuth = true;
+<<<<<<< HEAD
         $mail->Username = 'd910a798db45e3';
         $mail->Password = '0909c36e7491be*';
+=======
+        $mail->Username = 'cuentas@uptask.com';
+        $mail->Password = 'SECRET';
+>>>>>>> 3b06348afad1b8574a4e0ef2a00cc42b6d5bc11f
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port = 2525;
 
