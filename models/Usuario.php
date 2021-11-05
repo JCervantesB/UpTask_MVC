@@ -16,6 +16,24 @@ class Usuario extends ActiveRecord {
         $this->confirmado = $args['confirmado'] ?? 0;
     }
 
+    // Validar el login de Usuarios
+    public function validarLogin() {
+        if(!$this->email) {
+            self::$alertas['error'][] = 'El Email del Usuario es Obligatorio';
+        }
+        if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+            self::$alertas['error'][] = "El email no es valido";
+        }
+        if(!$this->password) {
+            self::$alertas['error'][] = 'El Password no puede ir vacio';
+        }
+        if(strlen($this->password) < 6) {
+            self::$alertas['error'][] = 'El Password debe contener al menos 6 caracteres';
+        }
+
+        return self::$alertas;
+    }
+
     // Validacion para cuentas nuevas
     public function validarNuevaCuenta() {
         if(!$this->nombre) {
@@ -34,6 +52,29 @@ class Usuario extends ActiveRecord {
             self::$alertas['error'][] = 'Los Password no coinciden';
         }        
 
+        return self::$alertas;
+    }
+
+    // Valida un Email
+    public function validarEmail() {
+        if(!$this->email) {
+            self::$alertas['error'][] = "El email es obligatorio";
+        }
+        if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+            self::$alertas['error'][] = "El email no es valido";
+        }
+
+        return self::$alertas;
+    }
+
+    // Validar password
+    public function validarPassword() {
+        if(!$this->password) {
+            self::$alertas['error'][] = 'El Password no puede ir vacio';
+        }
+        if(strlen($this->password) < 6) {
+            self::$alertas['error'][] = 'El Password debe contener al menos 6 caracteres';
+        }
         return self::$alertas;
     }
 

@@ -18,6 +18,8 @@ $router->post('/crear', [LoginController::class, 'crear']);
 // Formulario de Olvide mi password
 $router->get('/olvide', [LoginController::class, 'olvide']);
 $router->post('/olvide', [LoginController::class, 'olvide']);
+$router->get('/reenviar', [LoginController::class, 'reenviar']);
+$router->post('/reenviar', [LoginController::class, 'reenviar']);
 
 // Reestablecer password
 $router->get('/reestablecer', [LoginController::class, 'reestablecer']);

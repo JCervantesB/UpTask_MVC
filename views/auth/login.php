@@ -3,7 +3,12 @@
 
     <div class="contenedor-sm">
         <p class="descripcion-pagina">Iniciar Sesión</p>
-
+        <?php include_once __DIR__ . '/../templates/alertas.php' ?>
+        <?php if($noConfirmado) { ?>
+            <a class="boton" href="/reenviar">
+            <input type="submit" class="boton" value="Reenviar Confirmación">
+        </a>
+        <?php } ?>
         <form action="/" class="formulario" method="POST">
             <div class="campo">
                 <label for="email">Email</label>
