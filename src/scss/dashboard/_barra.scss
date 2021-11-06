@@ -1,0 +1,61 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.barra {
+    background-color: v.$blanco;
+    padding: 1rem 2rem;
+    box-shadow: 1px 12px 9px -13px rgba(0, 0, 0, .4);
+
+    @include m.tablet {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    p {
+        margin: 0;
+    }
+    .cerrar-sesion {
+        @include m.boton(darken(v.$naranja, 2%), v.$blanco);
+    }
+
+}
+.usuario {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    .usuario-nombre {
+        font-size: 2rem;
+        margin-left: 1rem;
+        font-weight: v.$bold;
+        color: v.$naranja;
+    }
+    .usuario-inicial {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 5rem;
+        height: 5rem;
+        background-color: v.$naranja;
+        border-radius:  50%;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none; 
+        margin: 1rem 0;
+        @include m.tablet {
+            margin: 0;
+        }
+        
+        p {
+            font-family: v.$fuente_headings;
+            font-size: 4.4rem;
+            font-weight: v.$bold;
+            color: v.$blanco;
+            rotate: -12deg;
+        }        
+    }
+}
+
