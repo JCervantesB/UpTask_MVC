@@ -6,7 +6,7 @@
         <?php include_once __DIR__ . '/../templates/alertas.php' ?>
         <?php if($noConfirmado) { ?>
             <a class="boton" href="/reenviar">
-            <input type="submit" class="boton" value="Reenviar Confirmación">
+            <input type="submit" class="boton boton-sm" value="Reenviar Confirmación">
         </a>
         <?php } ?>
         <form action="/" class="formulario" method="POST">

@@ -10,7 +10,12 @@
     input[type="submit"] {
         @include m.boton(v.$cyan, v.$blanco);
     }
-
+    .boton-sm {
+        padding: 1rem !important;
+        font-size: 1.2rem !important;
+        background-color: lighten(v.$rojo, 10%) !important;
+    }
+    
     .acciones {
         a {
             color: v.$cyan;
