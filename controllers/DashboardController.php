@@ -36,6 +36,8 @@ class DashboardController {
                 // Generar una url única
                 $hash = md5(uniqid());
                 $proyecto->url = $hash;
+                // Obtener fecha de creación
+                $proyecto->fecha = date('Y-m-d');
                 // Almacenar el creador del proyecto
                 $proyecto->propietarioId = $_SESSION['id'];
                 // Guardar el proyecto
@@ -69,7 +71,7 @@ class DashboardController {
 
         $router->render('dashboard/proyecto', [
             'titulo' => $proyecto->proyecto,
-            'year' => $year
+            'year' => $year,
         ]);
     }
 

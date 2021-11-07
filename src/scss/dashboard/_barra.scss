@@ -16,7 +16,7 @@
         margin: 0;
     }
     .cerrar-sesion {
-        @include m.boton(darken(v.$naranja, 2%), v.$blanco);
+        @include m.boton(darken(v.$indigo, 2%), v.$blanco);
     }
 
 }
@@ -30,7 +30,7 @@
         font-size: 2rem;
         margin-left: 1rem;
         font-weight: v.$bold;
-        color: v.$naranja;
+        color: v.$indigo;
     }
     .usuario-inicial {
         display: flex;
@@ -38,13 +38,27 @@
         justify-content: center;
         width: 5rem;
         height: 5rem;
-        background-color: v.$naranja;
         border-radius:  50%;
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none; 
         margin: 1rem 0;
+        background: linear-gradient(-45deg, v.$turquesa, v.$morado, v.$rosa, v.$indigo);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;    
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
         @include m.tablet {
             margin: 0;
         }

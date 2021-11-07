@@ -1,0 +1,73 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.no-proyectos {
+    a {
+        color: v.$cyan;
+    }
+    a:hover{
+        cursor: pointer;
+    }
+}
+.listado-proyectos {
+    list-style: none;
+    padding: 0;
+    margin-top: 3rem;
+    @include m.grid(1, 2rem);
+    @include m.tablet {
+        @include m.grid(2, 2rem);
+    }
+    @include m.desktop {
+        @include m.grid(3, 2rem);
+    }
+    .caja {        
+        border-radius: 1rem;
+        background: linear-gradient(-45deg, v.$turquesa, v.$indigo, v.$morado, v.$rosa);
+        background-size: 400% 400%;
+        animation: gradient 25s ease infinite;    
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        a {
+            color: v.$blanco;
+        }
+
+        .caja-barra {
+            color: v.$grisClaro;
+            text-align: right;
+            padding: 0 1rem 1rem 0;
+        }
+        @include m.tablet {
+            max-width: 30rem;
+        }
+        @include m.desktop {
+            max-width: 50rem;
+        }
+    }
+    .fecha {
+        font-size: 1.2rem;
+        color: v.$blanco;
+        padding: 1rem 0 0 2rem;
+    }
+
+    .proyecto {
+        font-family: v.$fuente_headings;
+        font-size: 2rem;
+        font-weight: bold;
+        min-height: 12rem;
+        display: flex;
+        padding: 4rem 2rem 0 2rem;
+        justify-content: center;
+        line-height: 2;
+        
+    }
+}

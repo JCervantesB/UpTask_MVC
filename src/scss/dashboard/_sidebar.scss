@@ -1,9 +1,25 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
 
-.sidebar {
-    background-color: v.$naranja;
+.sidebar {    
     padding: 2rem;
+    //background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background: linear-gradient(-45deg, v.$indigo, v.$azul, v.$rosa, v.$morado);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;    
+
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
 
     h2 {
         color: v.$blanco;
@@ -26,9 +42,23 @@
             font-size: 1.5rem;
 
             &:hover,
-            &.activo {
-                background-color: darken(v.$naranja, 10%);
+            &.activo {                
                 border-radius: .5rem;
+                background: linear-gradient(-45deg, v.$rosa, v.$morado, v.$cyan, v.$indigo);
+                background-size: 400% 400%;
+                animation: gradient 25s ease infinite;    
+
+                @keyframes gradient {
+                    0% {
+                        background-position: 0% 50%;
+                    }
+                    50% {
+                        background-position: 100% 50%;
+                    }
+                    100% {
+                        background-position: 0% 50%;
+                    }
+                }
             }
         }
     }
