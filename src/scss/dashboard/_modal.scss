@@ -28,15 +28,26 @@
             margin-bottom: 2rem;
             display: block;
         }
+        input[type="text"] {
+            border: 1px solid v.$gris;
+        }
         .opciones {
             display: flex;
             justify-content: space-between;
         }
         .submit-nueva-tarea {
             @include m.boton(v.$indigo, v.$blanco);
+            border-radius: 0;
         }
         .cerrar-modal {
             @include m.boton(v.$naranja, v.$blanco);
+            border-radius: 0;
+        }
+        @include m.desktop {
+            .submit-nueva-tarea,
+            .cerrar-modal {
+                border-radius: 1rem;
+            }
         }
         
         &.animar {

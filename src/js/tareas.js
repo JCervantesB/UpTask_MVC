@@ -41,9 +41,48 @@
                     modal.remove();
                 }, 500);
             } 
+            if(e.target.classList.contains('submit-nueva-tarea')) {
+                submitFormularioNuevaTarea();
+            }
 
-            console.log(e.target);
         })
-        document.querySelector('body').appendChild(modal);
+        document.querySelector('.dashboard').appendChild(modal);
     }
+
+    function submitFormularioNuevaTarea() {
+        const tarea = document.querySelector('#tarea').value.trim();
+
+        if(tarea === '') {
+            // Mostrar un alerta de error
+            mostrarAlerta('El nombre de la tarea es Obligatorio', 'error', document.querySelector('.formulario legend'));
+            return;
+        }
+        agregarTarea(tarea);
+    }
+    // Muestra un mensaje en la interfaz
+    function mostrarAlerta(mensaje, tipo, referencia) {
+        // Previene creacion de multiples alertas
+        const alertaPrevia = document.querySelector('.alerta');
+        if(alertaPrevia) {
+            alertaPrevia.remove();
+        }
+        // Crear la alerta
+        const alerta = document.createElement('DIV');
+        alerta.classList.add('alerta', tipo);
+        alerta.textContent = mensaje;
+
+        // Inserta la alerta despues del Legend
+        referencia.parentElement.insertBefore(alerta, referencia.nextElementSibling);
+
+        //Eliminar la alerta despues de 5seg
+        setTimeout(() => {
+            alerta.remove();
+        }, 5000);
+    }
+    //TODO::
+    // Consultar el Servidor via API para añadir una nueva tarea al proyecto actual
+    function agregarTarea(tarea) {
+
+    }
+
 })();
