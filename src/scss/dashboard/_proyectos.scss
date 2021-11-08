@@ -20,7 +20,8 @@
     @include m.desktop {
         @include m.grid(3, 2rem);
     }
-    .caja {        
+    .caja {   
+        min-height: 18rem;     
         border-radius: 1rem;
         background: linear-gradient(-45deg, v.$turquesa, v.$indigo, v.$morado, v.$rosa);
         background-size: 400% 400%;
@@ -63,11 +64,41 @@
         font-family: v.$fuente_headings;
         font-size: 2rem;
         font-weight: bold;
-        min-height: 12rem;
+        min-height: 11rem;
         display: flex;
         padding: 4rem 2rem 0 2rem;
         justify-content: center;
         line-height: 2;
         
     }
+    .estado {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 1.2rem;
+        p {
+            margin: 0;
+            font-size: 1rem;
+            color: v.$blanco;
+            margin-right: 1rem;
+        }
+        .barra-progreso {
+            height: 100%;
+            width: 60%;
+            border: 1px solid v.$grisClaro;
+            border-radius: .5rem;
+            display: flex;
+            align-content: center;
+    
+            .progreso {
+                height: 100%;
+                width: 40%;
+                font-size: .8rem;
+                border-radius: 1rem;
+                background: linear-gradient(-45deg, v.$naranja, v.$rosa);
+                 
+            }
+        }
+    }
+    
 }
