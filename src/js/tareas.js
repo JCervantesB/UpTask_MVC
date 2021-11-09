@@ -1,8 +1,46 @@
 // Creando funciones IIFE: Expresión de función ejecutada inmediatamente
 (function() {
+
+    obtenerTareas();
+
     // Boton para mostrar el Modal de Agregar Tarea
     const nuevaTareaBtn = document.querySelector('#agregar-tarea');
     nuevaTareaBtn.addEventListener('click', mostrarFormulario);
+
+    async function obtenerTareas() {
+        try {
+            const id = obtenerProyecto();
+            const url = `/api/tareas?id=${id}`;
+            const respuesta = await fetch(url);
+            const resultado = await respuesta.json();
+            
+            const {tareas} = resultado;
+            mostrarTareas(tareas);
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    function mostrarTareas(tareas) {
+        if(tareas.length === 0) {
+            const contenedorTareas = document.querySelector('#listado-tareas');
+
+            const textoNoTareas = document.createElement('LI');
+            textoNoTareas.textContent = 'No hay Tareas';
+            textoNoTareas.classList.add('no-tareas');
+
+            contenedorTareas.appendChild(textoNoTareas);
+            return;
+        }
+
+        tareas.forEach(tarea => {
+            const contenedorTareas = document.createElement('LI');
+            contenedorTareas.dataset.tareaId = tarea.id;
+            contenedorTareas.classList.add('tarea');
+            const nombreTarea = document.createElement('P');
+            nombreTarea.textContent = tarea.nombre;
+        });
+    }
 
     function mostrarFormulario() {
         const modal = document.createElement('DIV');

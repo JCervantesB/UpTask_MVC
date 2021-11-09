@@ -18,7 +18,7 @@ class DashboardController {
         $router->render('dashboard/index', [
             'titulo' => 'Proyectos',
             'proyectos' => $proyectos,
-            'year' => $year,
+            'year' => $year
         ]);
     }
     public static function crear_proyecto(Router $router) {

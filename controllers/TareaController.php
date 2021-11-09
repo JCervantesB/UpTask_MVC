@@ -24,7 +24,9 @@ class TareaController {
         // Contar Tareas Pendientes
         
         // Contar Tareas completadas
-        debuguear($tareas);
+
+        // Mostrar tareas
+        echo json_encode(['tareas' => $tareas]);
     }
 
     public static function crear() {
