@@ -3,7 +3,6 @@
 namespace Controllers;
 
 use Model\Proyecto;
-use Model\Tarea;
 use MVC\Router;
 
 class DashboardController {
@@ -13,12 +12,12 @@ class DashboardController {
 
         $id = $_SESSION['id'];
         $proyectos = Proyecto::belongsTo('propietarioId', $id);
-        $year = date('Y');
+        $year = date('Y');   
 
         $router->render('dashboard/index', [
             'titulo' => 'Proyectos',
             'proyectos' => $proyectos,
-            'year' => $year
+            'year' => $year,
         ]);
     }
     public static function crear_proyecto(Router $router) {

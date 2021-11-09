@@ -14,6 +14,7 @@
         flex-direction: column;
         justify-content: space-between;
         flex: 1;
+        overflow: scroll;
     }
 
     .contenido {
@@ -39,16 +40,6 @@
         padding: 1rem;
         text-transform: uppercase;
         font-weight: bold;
-    }
-
-    footer {
-        a, strong {
-            color: v.$indigo;
-        }
-        p {
-            margin: 0;
-            text-align: center;
-        }        
     }
     
 }
