@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use Model\Proyecto;
+use Model\Usuario;
 use MVC\Router;
 
 class DashboardController {
@@ -78,11 +79,40 @@ class DashboardController {
     public static function perfil(Router $router) {
         session_start();
         isAuth();
+        $alertas = [];
         $year = date('Y');
+
+        $usuario = Usuario::find($_SESSION['id']);
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $usuario->sincronizar($_POST);
+
+            $alertas = $usuario->validar_perfil();
+
+            if(empty($alertas)) {
+                // Verificar el correo del usuario
+                $existeUsuario = Usuario::where('email', $usuario->email);
+                if($existeUsuario) {
+                    // Mensaje de error
+                    Usuario::setAlerta('error', 'Email no valido o ya se encuentra registrado');
+                    $alertas = $usuario->getAlertas();
+                } else {
+                    // Guardar el usuario
+                    $usuario->guardar();
+                    // Mostrar mensaje de exito
+                    Usuario::setAlerta('exito', 'Guardado correctamente');
+                    $alertas = $usuario->getAlertas();
+    
+                    $_SESSION['nombre'] = $usuario->nombre;
+                }
+            }
+        }
 
         $router->render('dashboard/perfil', [
             'titulo' => 'Perfil',
-            'year' => $year
+            'year' => $year,
+            'alertas' => $alertas,
+            'usuario' => $usuario
         ]);
     }
 }

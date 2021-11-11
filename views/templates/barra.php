@@ -8,7 +8,7 @@
 <div class="barra">
     <div class="usuario">
         <div class="usuario-inicial">
-        <a href="/perfil"><p><?php echo substr($_SESSION['nombre'], 0, 2);?></p></a>
+        <a href="/perfil"><p><?php echo substr($_SESSION['nombre'], 0, 1);?></p></a>
         </div>
         <div class="usuario-datos">
             <p class="usuario-nombre"><?php echo $_SESSION['nombre']; ?></p>
