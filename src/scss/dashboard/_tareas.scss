@@ -6,7 +6,7 @@
     justify-content: center;
 
     .agregar-tarea {
-        @include m.boton(v.$cyan, v.$blanco)
+        @include m.boton(v.$turquesa, v.$blanco)
     }
     &:hover{
         cursor: pointer;

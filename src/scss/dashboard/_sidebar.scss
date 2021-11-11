@@ -2,27 +2,80 @@
 @use 'base/mixins' as m;
 
 .sidebar {    
-    padding: 2rem;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
     //background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background: linear-gradient(-45deg, v.$indigo, v.$azul, v.$rosa, v.$morado);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;    
-
+    transition-property: opacity;
+    transition-duration: 500ms;
+    
     @keyframes gradient {
         0% {background-position: 0% 50%;}
         50% {background-position: 100% 50%;}
         100% {background-position: 0% 50%;}
     }
+    &.mostrar {
+        opacity: 1;
+        padding: 2rem;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        
+        @include m.tablet {
+            display: none;
+        }
+    }
+    
+    &.ocultar {
+        opacity: 0;
+    }
+    @include m.tablet {
+        height: 100%;
+        opacity: 1;
+        padding: 2rem;
+    }
 
+    .contenedor-sidebar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
 
-    h2 {
-        color: v.$blanco;
-        margin: 0;
-        text-align: center;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none; 
+        h1 {
+            color: v.$blanco;
+            margin: 0;
+            text-align: center;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none; 
+        }
+
+        .cerrar-menu {
+            display: flex;
+            justify-content: center;
+            height: 2rem;
+            width: 2rem;
+            img {
+                max-width: none;
+                width: 3rem;
+                height: 3rem;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+        @include m.tablet {
+            .cerrar-menu {
+                display: none;
+            }
+        }
     }
 
     .sidebar-nav {
@@ -31,21 +84,22 @@
         a {
             color: v.$blanco;
             display: block;
-            margin-bottom: 1.2rem;
             padding: .7rem;
             transition-property: background-color;
             transition-duration: 300ms;
             text-transform: uppercase;
             font-weight: bold;
-            font-size: 1.5rem;
-
+            font-size: 2.4rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            
             &:hover,
             &.activo {                
                 border-radius: .5rem;
                 background: linear-gradient(-45deg, v.$rosa, v.$morado, v.$cyan, v.$indigo);
                 background-size: 400% 400%;
                 animation: gradient 25s ease infinite;    
-
+                
                 @keyframes gradient {
                     0% {
                         background-position: 0% 50%;
@@ -56,8 +110,25 @@
                     100% {
                         background-position: 0% 50%;
                     }
-                }
+                }            
             }
+            @include m.tablet {
+                font-size: 1.5rem;
+                margin-bottom: 1.2rem;
+                text-align: left;
+            }
+        }
+    }
+    .cerrar-sesion-mobile {
+        margin-top: 10rem;
+
+        .cerrar-sesion {
+            @include m.boton(darken(v.$turquesa, 2%), v.$blanco);
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+        }
+
+        @include m.tablet {
+            display: none;
         }
     }
     
