@@ -41,5 +41,12 @@
         text-transform: uppercase;
         font-weight: bold;
     }
+
+    .enlace {
+        color: darken(v.$turquesa, 15%);
+        &:hover {
+            cursor: pointer;
+        }
+    }
     
 }

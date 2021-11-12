@@ -1,0 +1,111 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+@media (prefers-color-scheme: dark) {
+    $grisOscuro: #2c2c3b;
+    body {
+        background-color: $grisOscuro;
+    }
+    .tagline, 
+    .formulario label,
+    .login .acciones a,
+    .crear .acciones a,
+    .olvide .acciones a {
+        color: v.$blanco;
+    }
+    .descripcion-pagina,
+    .formulario .campo input,
+    .nombre-pagina {
+        color: darken(v.$grisClaro, 15%);
+    }
+    .formulario .campo input {
+        background-color: lighten($grisOscuro, 15%);
+    }
+
+    .alerta.error {
+        background-color: v.$blanco;
+    }
+
+    .barra-mobile,
+    .sidebar,
+    .barra {
+        background: none;
+        background-color: darken($grisOscuro, 7%);
+    }
+
+    .filtros {
+        background-color: lighten($grisOscuro, 10%);
+        h2, label {
+            color: v.$blanco;
+        }
+        input[type="radio"] {
+            accent-color: v.$turquesa;
+        }
+    }
+    .sidebar .sidebar-nav a.activo, .sidebar .sidebar-nav a:hover {
+        background: none;
+        background-color: v.$turquesa;
+    }
+    .usuario .usuario-nombre {
+        color: v.$grisClaro;
+    }
+    .usuario .usuario-inicial {
+        background: none;
+        border: 1px solid v.$grisClaro;
+    }
+
+    .dashboard {
+        background-color: $grisOscuro;
+
+        .enlace {
+            color: v.$grisClaro;
+
+            &:hover {
+                color: darken(v.$grisClaro, 20%);
+            }
+        }
+        .formulario input:not([type="submit"]) {
+            background-color: lighten($grisOscuro, 20%);
+            border: none;
+            color: v.$blanco;
+
+            &::placeholder {
+                color: darken(v.$grisClaro, 20%);
+            }
+        }
+    }
+
+    .listado-proyectos .caja {
+        background: none;
+        background-color: lighten($grisOscuro, 20%);        
+        &:hover {
+            background-color: lighten($grisOscuro, 15%);
+        }
+    }
+    .listado-tareas .tarea {
+        background-color: lighten($grisOscuro, 10%);
+        border: none;
+        &:hover {
+            background-color: v.$turquesa;
+        }
+        p {
+            color: v.$grisClaro;
+        }
+    }
+
+    .modal .formulario {
+        background-color: $grisOscuro;
+        input[type="text"] {
+            background-color: lighten($grisOscuro, 20%);
+            border: none;
+            color: v.$blanco;
+
+            &::placeholder {
+                color: darken(v.$grisClaro, 20%);
+            }
+        }
+        legend {
+            color: v.$grisClaro;
+        }
+    }
+}

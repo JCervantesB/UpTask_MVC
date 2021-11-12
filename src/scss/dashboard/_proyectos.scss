@@ -54,20 +54,16 @@
             max-width: 50rem;
         }
     }
-    .fecha {
-        font-size: 1.2rem;
-        color: v.$blanco;
-        padding: 1rem 0 0 2rem;
-    }
 
     .proyecto {
         font-family: v.$fuente_headings;
         font-size: 2rem;
         font-weight: bold;
-        min-height: 13rem;
+        height: 100%;
         display: flex;
-        padding: 4rem 2rem 0 2rem;
+        padding: 4rem 2rem;
         justify-content: center;
+        align-items: center;
         line-height: 2;
         
     }
